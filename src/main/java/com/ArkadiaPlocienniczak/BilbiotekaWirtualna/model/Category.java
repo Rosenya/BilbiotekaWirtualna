@@ -25,8 +25,7 @@ import java.util.Set;
         private String name;
 
         @OneToMany(cascade = CascadeType.REFRESH,mappedBy = "category")
-        private Set<Book> products = new HashSet<>();
-
+        private Set<Book> books = new HashSet<>();
     }
 
-}
+
