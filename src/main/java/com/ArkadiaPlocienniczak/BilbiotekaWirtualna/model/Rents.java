@@ -22,16 +22,16 @@ public class Rents {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rent_id")
     private Long id;
-    @Column(length = 30)
-    private Long bookId;
-    @Column(length = 30)
-    private Long userId;
     @Column(name = "rent_date")
     @DateTimeFormat(pattern = "dd-mm-yyyy")
     @CreationTimestamp
     private Date rentDate;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
 }
