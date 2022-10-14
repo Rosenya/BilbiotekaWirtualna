@@ -17,6 +17,37 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
+    public List<Book> getBook(){
+        return bookRepository.findAll();
+    }
+
+    public Book getBookById(Long id){
+        return bookRepository.findById(id).orElse(null);
+    }
+    public List<Book> getCategoryById(Long categoryId){
+        return bookRepository.findByCategoryId(categoryId);
+    }
+
+    public List<Book> getBookByName(String name){
+        return bookRepository.findByName(name);
+    }
+
+    public List<Book> getBookByAuthor(String author){
+        return bookRepository.findByAuthor(author);
+    }
+
+    public List<Book> getBookByEan(String ean){
+        return bookRepository.findByEan(ean);
+    }
+
+    public List<Book> getBookByType(String type){
+        return bookRepository.findByType(type);
+    }
+
+    public List<Book> getBookByCategoryIdOrNameOrAuthorOrEanOrType(Long categoryId, String name, String author, String ean, String type){
+        return bookRepository.findBookByCategoryIdOrNameOrAuthorOrEanOrType(categoryId, name, author, ean, type);
+    }
+
     public void addBook(Book book){
         bookRepository.save(book);
         log.info("Dodano książkę: " + book.getName());
@@ -26,16 +57,9 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void deleteBook(Long id){
+    public void deleteBookById(Long id){
         bookRepository.deleteById(id);
         log.info("Usunięto książkę o id: " + id);
     }
 
-    public List<Book> getBook(){
-        return bookRepository.findAll();
-    }
-
-    public Book getBookById(Long id){
-        return bookRepository.findById(id).orElse(null);
-    }
 }
