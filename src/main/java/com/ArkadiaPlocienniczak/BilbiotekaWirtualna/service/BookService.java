@@ -31,7 +31,7 @@ public class BookService {
         log.info("Usunięto książkę o id: " + id);
     }
 
-    public List<Book> getBookList(){
+    public List<Book> getBook(){
         return bookRepository.findAll();
     }
 

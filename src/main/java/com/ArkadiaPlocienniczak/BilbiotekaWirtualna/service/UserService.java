@@ -1,6 +1,5 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service;
 
-import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Book;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
