@@ -36,7 +36,7 @@ public class CategoryService {
         categoryRepository.save(category);
     }
 
-    public void deleteCategory(Long id){
+    public void deleteCategoryById(Long id){
         categoryRepository.deleteById(id);
         log.info("Usunięto kategorię o id: " + id);
     }

@@ -1,9 +1,7 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.controller;
 
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Book;
-import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.BookService;
-import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

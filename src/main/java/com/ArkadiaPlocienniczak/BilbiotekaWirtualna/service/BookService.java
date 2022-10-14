@@ -24,25 +24,6 @@ public class BookService {
     public Book getBookById(Long id){
         return bookRepository.findById(id).orElse(null);
     }
-    public List<Book> getCategoryById(Long categoryId){
-        return bookRepository.findByCategoryId(categoryId);
-    }
-
-    public List<Book> getBookByName(String name){
-        return bookRepository.findByName(name);
-    }
-
-    public List<Book> getBookByAuthor(String author){
-        return bookRepository.findByAuthor(author);
-    }
-
-    public List<Book> getBookByEan(String ean){
-        return bookRepository.findByEan(ean);
-    }
-
-    public List<Book> getBookByType(String type){
-        return bookRepository.findByType(type);
-    }
 
     public List<Book> getBookByCategoryIdOrNameOrAuthorOrEanOrType(Long categoryId, String name, String author, String ean, String type){
         return bookRepository.findBookByCategoryIdOrNameOrAuthorOrEanOrType(categoryId, name, author, ean, type);
