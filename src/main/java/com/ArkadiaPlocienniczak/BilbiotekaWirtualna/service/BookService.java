@@ -50,10 +50,6 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void editAvailibility(String availibility){
-        bookRepository.editAvailibility(availibility);
-    }
-
     public void deleteBookById(Long id){
         bookRepository.deleteById(id);
         log.info("Usunięto książkę o id: " + id);

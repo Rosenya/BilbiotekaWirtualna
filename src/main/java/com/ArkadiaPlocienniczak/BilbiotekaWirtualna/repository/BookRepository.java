@@ -22,5 +22,4 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             String ean,
             String type,
             String availibility);
-    List<Book> editAvailibility(String availibility);
 }

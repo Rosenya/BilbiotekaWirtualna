@@ -2,6 +2,7 @@ package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.controller;
 
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Book;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Category;
+import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,12 +52,6 @@ public class BookController {
     public ResponseEntity deleteBook(@RequestParam("id") Long id){
         bookService.deleteBookById(id);
         return (ResponseEntity) ResponseEntity.noContent();
-    }
-
-    @PatchMapping("/editAvailibility")
-    public ResponseEntity editBookAvailibility(@RequestParam("availibility") String availibility){
-        bookService.editAvailibility(availibility);
-        return ResponseEntity.ok(availibility);
     }
 
 }
