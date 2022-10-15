@@ -30,6 +30,8 @@ public class Book {
         @Column(length = 13)
         private String ean;
         @Column(length = 30)
+        private String status;
+        @Column(length = 30)
         private String availibility;
 
     @ManyToOne
@@ -44,13 +46,15 @@ public class Book {
     @JoinColumn(name = "rent_id")
     private Rents rents;
 
-    public Book(Long id, String name, String author, Long tome, String type, String ean, Category category) {
+    public Book(Long id, String name, String author, Long tome, String type, String ean, String status, String availibility, Category category) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.tome = tome;
         this.type = type;
         this.ean = ean;
+        this.status = status;
+        this.availibility = availibility;
         this.category = category;
     }
 
@@ -78,6 +82,10 @@ public class Book {
         return ean;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public String getAvailibility() {
         return availibility;
     }
@@ -95,6 +103,7 @@ public class Book {
                 ", tome=" + tome +
                 ", type='" + type + '\'' +
                 ", ean='" + ean + '\'' +
+                ", status='" + status + '\'' +
                 ", availibility='" + availibility + '\'' +
                 ", category=" + category +
                 '}';

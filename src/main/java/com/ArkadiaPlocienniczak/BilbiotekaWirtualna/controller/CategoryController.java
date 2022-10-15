@@ -27,7 +27,7 @@ public class CategoryController {
     }
 
     @PostMapping("/category")
-    public RedirectView addUser(@ModelAttribute Category newCategory){
+    public RedirectView addCategoty(@ModelAttribute Category newCategory){
         categoryService.addCategory(newCategory);
         return new RedirectView("category");
     }

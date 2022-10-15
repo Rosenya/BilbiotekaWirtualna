@@ -1,6 +1,7 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.controller;
 
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Book;
+import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Category;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,11 +26,12 @@ public class BookController {
                               @PathVariable("name") String name,
                               @PathVariable("author") String author,
                               @PathVariable("ean") String ean,
-                              @PathVariable("type") String type) {
-        if(categoryId == null && name == null && author == null && ean == null && type == null){
+                              @PathVariable("type") String type,
+                              @PathVariable("availibility") String availibility) {
+        if(categoryId == null && name == null && author == null && ean == null && type == null && availibility == null){
             return new ResponseEntity<>(bookService.getBook(),HttpStatus.OK);
         }
-        List<Book> book = bookService.getBookByCategoryIdOrNameOrAuthorOrEanOrType(categoryId, name, author, ean, type);
+        List<Book> book = bookService.getBookByCategoryIdOrNameOrAuthorOrEanOrTypeOrAvailibility(categoryId, name, author, ean, type, availibility);
         return new ResponseEntity<List<Book>>(book, HttpStatus.OK);
     }
 
@@ -51,11 +53,10 @@ public class BookController {
         return (ResponseEntity) ResponseEntity.noContent();
     }
 
-    @PatchMapping("/editMyAccount")
-    public String editMyAccount(@PathVariable("id") Long id, Model model){
-        Book book = bookService.getBookById(id);
-        model.addAttribute("book", book);
-        return "myAccount/editMyAccount";
+    @PatchMapping("/editAvailibility")
+    public ResponseEntity editBookAvailibility(@RequestParam("availibility") String availibility){
+        bookService.editAvailibility(availibility);
+        return ResponseEntity.ok(availibility);
     }
 
 }

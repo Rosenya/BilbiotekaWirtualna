@@ -25,8 +25,20 @@ public class BookService {
         return bookRepository.findById(id).orElse(null);
     }
 
-    public List<Book> getBookByCategoryIdOrNameOrAuthorOrEanOrType(Long categoryId, String name, String author, String ean, String type){
-        return bookRepository.findBookByCategoryIdOrNameOrAuthorOrEanOrType(categoryId, name, author, ean, type);
+    public List<Book> getBookByCategoryIdOrNameOrAuthorOrEanOrTypeOrAvailibility(
+            Long categoryId,
+            String name,
+            String author,
+            String ean,
+            String type,
+            String availibility){
+        return bookRepository.findBookByCategoryIdOrNameOrAuthorOrEanOrTypeOrAvailibility(
+                categoryId,
+                name,
+                author,
+                ean,
+                type,
+                availibility);
     }
 
     public void addBook(Book book){
@@ -36,6 +48,10 @@ public class BookService {
 
     public void editBook(Book book){
         bookRepository.save(book);
+    }
+
+    public void editAvailibility(String availibility){
+        bookRepository.editAvailibility(availibility);
     }
 
     public void deleteBookById(Long id){

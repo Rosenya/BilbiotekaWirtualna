@@ -34,4 +34,27 @@ public class Rents {
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
+
+    public Rents(Long id, Date rentDate, User user, Book book) {
+        this.id = id;
+        this.rentDate = rentDate;
+        this.user = user;
+        this.book = book;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getRentDate() {
+        return rentDate;
+    }
+
+    public void setRentDate(Date rentDate) {
+        this.rentDate = rentDate;
+    }
 }
