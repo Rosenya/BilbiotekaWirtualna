@@ -1,9 +1,6 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@Data
 @Table(name = "Book")
 public class Book {
 
@@ -58,42 +56,6 @@ public class Book {
         this.category = category;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public Long getTome() {
-        return tome;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getEan() {
-        return ean;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getAvailibility() {
-        return availibility;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
     @Override
     public String toString() {
         return "Book{" +
@@ -105,7 +67,9 @@ public class Book {
                 ", ean='" + ean + '\'' +
                 ", status='" + status + '\'' +
                 ", availibility='" + availibility + '\'' +
-                ", category=" + category +
+                ", category_id=" + category.getId() +
+                ", user=" + user +
+                ", rents=" + rents +
                 '}';
     }
 }

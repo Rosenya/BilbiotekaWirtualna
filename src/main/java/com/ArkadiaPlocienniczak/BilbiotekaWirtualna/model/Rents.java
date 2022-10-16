@@ -1,5 +1,6 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -25,29 +27,23 @@ public class Rents {
     @Column(name = "rent_date")
     @DateTimeFormat(pattern = "dd-mm-yyyy")
     @CreationTimestamp
-    private Date rentDate;
+    private LocalDateTime rentDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
+    @JsonIgnore
     private Book book;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getRentDate() {
-        return rentDate;
-    }
-
-    public void setRentDate(Date rentDate) {
-        this.rentDate = rentDate;
+    @Override
+    public String toString() {
+        return "Rents{" +
+                "id=" + id +
+                ", rentDate=" + rentDate +
+                '}';
     }
 }

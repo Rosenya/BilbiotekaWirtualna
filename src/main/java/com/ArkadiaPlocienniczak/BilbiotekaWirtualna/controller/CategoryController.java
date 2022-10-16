@@ -1,7 +1,9 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.controller;
 
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Category;
+import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.CategoryService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,27 +22,30 @@ public class CategoryController {
     }
 
     @GetMapping("/category")
-    public String getCategoryList(Model model) {
-        List<Category> category = categoryService.getCategories();
-        model.addAttribute("category", category);
-        return "category";
+    public ResponseEntity getCategory(@PathVariable(required = false, name="categoryID") Long id){
+        if(id == null){
+            return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
+        }
+        Category category = categoryService.getCategoryById(id);
+        return new ResponseEntity(category, HttpStatus.OK);
     }
 
-    @PostMapping("/category")
-    public RedirectView addCategoty(@ModelAttribute Category newCategory){
-        categoryService.addCategory(newCategory);
-        return new RedirectView("category");
+    @PostMapping("/category/addCategory")
+    public ResponseEntity addCategory(@RequestBody Category category){
+        categoryService.addCategory(category);
+        return ResponseEntity.ok(category);
     }
 
-    @PutMapping("/category")
+
+    @PutMapping("/category/editCategory")
     public ResponseEntity editCategory(@RequestBody Category category){
         categoryService.editCategory(category);
         return ResponseEntity.ok(category);
     }
 
-    @DeleteMapping("/category")
+    @DeleteMapping("/category/deleteCategory")
     public ResponseEntity deleteCategory(@RequestParam("id") Long id){
         categoryService.deleteCategoryById(id);
-        return (ResponseEntity) ResponseEntity.noContent();
+        return ResponseEntity.ok(null);
     }
 }

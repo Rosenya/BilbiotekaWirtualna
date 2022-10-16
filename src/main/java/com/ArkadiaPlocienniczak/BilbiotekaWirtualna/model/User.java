@@ -1,9 +1,7 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@Data
 @Table(name = "User")
 public class User {
 
@@ -22,10 +21,20 @@ public class User {
     @Column(name = "user_id")
     private Long id;
     @Column(length = 30)
-    private String firstname;
+    private String name;
     @Column(length = 20)
     private String email;
 
-    @OneToMany(cascade = CascadeType.REFRESH,mappedBy = "user")
-    private Set<Book> books = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private Set<Book> books;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
