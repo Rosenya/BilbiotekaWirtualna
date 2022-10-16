@@ -1,5 +1,6 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service;
 
+import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Category;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Rents;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.repository.RentsRepository;
@@ -20,6 +21,10 @@ public class RentsService {
 
     public List<Rents> getRents(){
         return rentsRepository.findAll();
+    }
+
+    public Rents getRentById(Long id){
+        return rentsRepository.findById(id).orElse(null);
     }
 
     public void addRent(Rents rents){

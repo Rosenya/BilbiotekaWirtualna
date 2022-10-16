@@ -1,17 +1,13 @@
 package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.controller;
 
-import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Book;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.Rents;
-import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model.User;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.BookService;
 import com.ArkadiaPlocienniczak.BilbiotekaWirtualna.service.RentsService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.List;
 
 @Controller
 public class RentsController {
@@ -25,21 +21,23 @@ public class RentsController {
     }
 
     @GetMapping("/rents")
-    public String getRentsList(Model model) {
-        List<Rents> rents = rentsService.getRents();
-        model.addAttribute("rents", rents);
-        return "rentsList";
+    public ResponseEntity getRents(@PathVariable(required = false, name="rentId") Long id){
+        if(id == null){
+            return new ResponseEntity<>(rentsService.getRents(), HttpStatus.OK);
+        }
+        Rents rents = rentsService.getRentById(id);
+        return new ResponseEntity(rents, HttpStatus.OK);
     }
 
-    @PostMapping("/rents")
-    public RedirectView addRent(@ModelAttribute Rents newRent){
-        rentsService.addRent(newRent);
-        return new RedirectView("rents");
+    @PostMapping("/rents/addRent")
+    public ResponseEntity addRent(@RequestBody Rents rent){
+        rentsService.addRent(rent);
+        return ResponseEntity.ok(rent);
     }
 
-    @DeleteMapping("/rents")
+    @DeleteMapping("/rents/deleteRent")
     public ResponseEntity deleteRentById(@RequestParam("id") Long id){
         rentsService.deleteRentById(id);
-        return (ResponseEntity) ResponseEntity.noContent();
+        return ResponseEntity.ok(null);
     }
 }
