@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/adminPanel")//mają dostęp wszyscy użytkownicy ROLE_ADMIN
+                .antMatchers("/AdminPanel")//mają dostęp wszyscy użytkownicy ROLE_ADMIN
                 .hasRole("ADMIN")
                 .and()
                 .csrf().disable() // wyłączamy zabezpieczenie CSRF w celu użycia np Postmana

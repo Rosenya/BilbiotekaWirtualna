@@ -31,14 +31,17 @@ export default function AddUser() {
     console.log("Dodano użytkownika")
   })
 }
+
 useEffect(()=>{
-fetch("http://localhost:8080/user")
+fetch("http://localhost:8080/users")
 .then(res=>res.json())
 .then((result)=>{
   setUser(result);
 }
 )
 },[])
+
+
 
   return (
     <Container>
@@ -63,25 +66,31 @@ fetch("http://localhost:8080/user")
       <h2></h2>
       <Button variant="contained" onClick={handleClick}>Zarejestruj</Button>
       
-
-
-
+ 
+    </Box >
+    </Paper>
+    <Box
+    component="form"
+    sx={{
+      '& > :not(style)': { m: 1, width: '25ch' },
+    }}
+    noValidate
+    autoComplete="off"
+    >
     
-    {/* <h1>Urzytkownicy</h1>
     <Paper elevation={3} style={paperStyle}>
-     {user.map(user=>(
+      <h1 style={{color:"Highlight"}}>Lista Użytkowników</h1>
+     {user.map(user=>(   
      <Paper elevation={6} style={{margin:"10px",padding:"15px", textAlign:"left"}} key={user.id}>
-     Id:{user.id}<br/>
-     Name:{user.name}<br/>
-     Address:{user.address}
+     id:{user.id}<br/>
+     name:{user.name}<br/>
+     email:{user.email}
      </Paper>
      ))
-    } */}
-    
-
- 
-    </Box>
+    }
     </Paper>
+     </Box>
     </Container>
+
   );
 } 
