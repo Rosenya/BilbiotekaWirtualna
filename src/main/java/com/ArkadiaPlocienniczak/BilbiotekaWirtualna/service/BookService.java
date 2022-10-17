@@ -11,6 +11,11 @@ import java.util.List;
 @Service
 public class BookService {
 
+    /*    @param injecting beans
+          @return service methods
+
+     */
+
     private BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository){

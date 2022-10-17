@@ -15,6 +15,10 @@ import java.util.List;
 @Controller
 public class CategoryController {
 
+    /*
+@param http methods. i've also tested them via postman to check responsiveness.
+ */
+
     private final CategoryService categoryService;
 
     public CategoryController (CategoryService categoryService) {

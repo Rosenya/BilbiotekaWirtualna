@@ -11,6 +11,11 @@ import java.util.List;
 @Service
 public class UserService {
 
+    /*    @param injecting beans
+    @return service methods
+
+     */
+
     private UserRepository userRepository;
 
     public UserService(UserRepository userRepository){

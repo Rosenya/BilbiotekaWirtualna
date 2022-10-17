@@ -13,6 +13,10 @@ import javax.persistence.*;
 @Table(name = "Book")
 public class Book {
 
+    /*    @param book, wich generates entity into my sql table
+
+     */
+
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "book_id")
