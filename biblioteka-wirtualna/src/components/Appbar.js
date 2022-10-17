@@ -15,12 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -190,21 +185,8 @@ export default function Appbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Router>
-          <Link to="/adminPanel">
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}>
-              Panel Administracyjny
-            </Typography>
-          </Link>
-          
-          <Routes>
-            <Route path="/adminPanel" element={<AdminPanel />} />
-          </Routes>
-          </Router>
+
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
@@ -239,10 +221,4 @@ export default function Appbar() {
     </Box>
   );
 }
-function AdminPanel() {
-  return (
-    <div>
-      <h2></h2>
-    </div>
-  );
-}
+

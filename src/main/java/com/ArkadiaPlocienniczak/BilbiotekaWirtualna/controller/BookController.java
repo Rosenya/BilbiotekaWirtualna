@@ -11,6 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 public class BookController {
 
     private final BookService bookService;
