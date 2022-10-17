@@ -28,14 +28,14 @@ export default function AddBook() {
   })
 }
 
-// useEffect(()=>{
-//     fetch("http://localhost:8080/books")
-//     .then(res=>res.json())
-//     .then((result)=>{
-//       setBooks(result);
-//     }
-//   )
-// },[])
+useEffect(()=>{
+    fetch("http://localhost:8080/books")
+    .then(res=>res.json())
+    .then((result)=>{
+      setBook(result);
+    }
+  )
+},[])
 
   return (
     <Container>
@@ -49,7 +49,7 @@ export default function AddBook() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Imię" variant="outlined" fullWidth 
+      <TextField id="outlined-basic" label="Nazwa" variant="outlined" fullWidth 
       value={name}
       onChange={(e)=>setName(e.target.value)}
       />
@@ -81,9 +81,36 @@ export default function AddBook() {
       onChange={(e)=>setAvailibility(e.target.value)}
       />
       <Button variant="contained" onClick={handleClick}>Dodaj</Button>
-    
+   
     </Box>
+    
     </Paper>
+    <Box
+    component="form"
+    sx={{
+      '& > :not(style)': { m: 1, width: '25ch' },
+    }}
+    noValidate
+    autoComplete="off"
+    >
+    
+    <Paper elevation={3} style={paperStyle}>
+      <h1 style={{color:"Highlight"}}>Lista Książek</h1>
+     {book.map(book=>(   
+     <Paper elevation={6} style={{margin:"10px",padding:"15px", textAlign:"left"}} key={book.id}>
+     id:{book.id}<br/>
+     name:{book.name}<br/>
+     author:{book.author}<br/>
+     tome:{book.tome}<br/>
+     type:{book.type}<br/>
+     ean:{book.ean}<br/>
+     status:{book.status}<br/>
+     availibility:{book.availibilityn}
+     </Paper>
+     ))
+    }
+    </Paper>
+     </Box>
     </Container>
   );
 }
