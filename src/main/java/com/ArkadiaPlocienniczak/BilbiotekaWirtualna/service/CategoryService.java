@@ -13,6 +13,11 @@ import java.util.List;
 @Service
 public class CategoryService {
 
+    /*    @param injecting beans
+    @return service methods
+
+     */
+
     private final CategoryRepository categoryRepository;
 
     public CategoryService(CategoryRepository categoryRepository) {

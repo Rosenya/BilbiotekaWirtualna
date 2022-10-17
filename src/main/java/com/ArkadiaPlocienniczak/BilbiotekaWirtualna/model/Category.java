@@ -19,6 +19,9 @@ import java.util.Set;
     @Table(name = "Category")
     public class Category {
 
+    /*    @param category, wich generates entity into my sql table
+
+     */
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "category_id")

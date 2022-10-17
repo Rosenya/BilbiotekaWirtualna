@@ -2,9 +2,9 @@ package com.ArkadiaPlocienniczak.BilbiotekaWirtualna.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.data.repository.query.Param;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,6 +16,9 @@ import java.util.Set;
 @Table(name = "User")
 public class User {
 
+/*    @param user, wich generates entity into my sql table
+
+ */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

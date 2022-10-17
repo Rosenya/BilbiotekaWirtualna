@@ -13,6 +13,11 @@ import java.util.List;
 @Service
 public class RentsService {
 
+    /*    @param injecting beans
+    @return service methods
+
+     */
+
     private RentsRepository rentsRepository;
 
     public RentsService(RentsRepository rentsRepository){

@@ -14,6 +14,12 @@ import java.util.List;
 @CrossOrigin
 public class BookController {
 
+    /*
+@param http methods. i've also tested them via postman to check responsiveness.
+@return @getMapping and @postMapping are responsive also via frontend
+ */
+
+
     private final BookService bookService;
 
     public BookController (BookService bookService) {

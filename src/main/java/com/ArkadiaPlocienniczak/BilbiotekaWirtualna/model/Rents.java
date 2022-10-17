@@ -20,6 +20,9 @@ import java.util.Date;
 @Table(name = "Rents")
 public class Rents {
 
+    /*    @param rents, wich generates entity into my sql table
+
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rent_id")

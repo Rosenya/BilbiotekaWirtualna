@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class RentsController {
 
+    /*
+@param http methods. i've also tested them via postman to check responsiveness.
+ */
+
     private final RentsService rentsService;
     private final BookService bookService;
 

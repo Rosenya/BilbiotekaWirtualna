@@ -13,6 +13,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /*
+    @return validation methods on backend side. due to lack of time i failed to set roles on a frontend side.
+    i've only started a validation process via log in. i'd like to continue that part with a next sprint
+     */
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()

@@ -15,7 +15,10 @@ import java.util.List;
 @Controller
 @CrossOrigin
 public class UserController {
-
+/*
+@param http methods. i've also tested them via postman to check responsiveness.
+@return @getMapping and @postMapping are responsive also via frontend
+ */
     private final UserService userService;
 
     public UserController (UserService userService) {

@@ -8,7 +8,7 @@ public class LoginRegisterController {
 
     @GetMapping("/login")
     public String getLogin() {
-        return "loginPages/login";
+        return "login";
     }
 
     @GetMapping("/rejestracja")
