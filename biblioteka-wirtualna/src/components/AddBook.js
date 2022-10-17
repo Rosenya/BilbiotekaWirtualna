@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Container, Paper, Button } from '@mui/material';
 
+//@return GET and POST http methods for book entity
+
 export default function AddBook() {
   const paperStyle={padding:'50px 20px', width:600,margin:"20px auto"}
   const[name,setName]=useState('')

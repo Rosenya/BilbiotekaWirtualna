@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Login.css';
 
+//@return login and password validation
+
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();

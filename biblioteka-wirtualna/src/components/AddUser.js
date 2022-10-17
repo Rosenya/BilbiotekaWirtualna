@@ -3,6 +3,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Container, Paper, Button } from '@mui/material';
 
+//@return GET and POST http methods for user entity
+
+
 // const useStyles = makeStyles((theme) => ({
 //   root: {
 //     '& > *': {

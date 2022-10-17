@@ -12,7 +12,7 @@ import {
 import AdminPanel from './AdminPanel'
 import Fantasy from './Fantastyka';
 
-
+// @return navigation tab for a whole page
 
 export default function NavTab() {
   const [value, setValue] = React.useState(0);
